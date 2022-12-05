@@ -22,12 +22,11 @@ import Actions from "./actions";
 import { useUIContext } from "../../context/ui";
 
 export default function AppbarDesktop({ matches }) {
-  
   const { setShowSearchBox } = useUIContext();
 
   return (
     <AppbarContainer>
-      <AppbarHeader variant="h4">My Bags</AppbarHeader>
+      <AppbarHeader variant="h4">Sab One Dollar</AppbarHeader>
       <MyList type="row">
         <ListItemText primary="Home" />
         <ListItemText primary="Categories" />
@@ -39,8 +38,8 @@ export default function AppbarDesktop({ matches }) {
             <SearchIcon />
           </ListItemIcon>
         </ListItemButton>
-          </MyList>
-       <Actions matches={matches} />   
+      </MyList>
+      <Actions matches={matches} />
     </AppbarContainer>
   );
 }

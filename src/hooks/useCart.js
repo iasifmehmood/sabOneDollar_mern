@@ -14,7 +14,17 @@ function useCart(product) {
       ? "Remove from Cart"
       : "Add to cart";
 
-  return { addToCart, addToCartText };
+  const removeFromCart = () => {
+    cart.findIndex(c => c.id === product.id) <= 0
+      ? setCart(cart.filter(c => c.id === product.id))
+      : setCart(c => [...c, product]);
+  };
+
+  const removeToCartText = cart.findIndex(c => c.id === product.id)
+    ? "Remove from Cart"
+    : "Add to cart";
+
+  return { addToCart, addToCartText, removeFromCart, removeToCartText };
 }
 
 export default useCart;

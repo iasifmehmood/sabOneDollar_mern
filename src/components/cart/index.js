@@ -12,11 +12,14 @@ import { useTheme } from "@mui/material/styles";
 
 import { Colors } from "../../styles/theme";
 import { Box } from "@mui/system";
+import useCart from "../../hooks/useCart";
 
 export default function Cart() {
   const { cart, setShowCart, showCart } = useUIContext();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+  const { removeFromCart, removeToCartText } = useCart(cart);
 
   const cartContent = cart.map(item => (
     <Box key={item.id}>
@@ -72,6 +75,9 @@ export default function Cart() {
           <Paper elevation={0} sx={{ mt: 2, width: "90%", padding: 4 }}>
             {cartContent}
           </Paper>
+
+          <Button onClick={removeFromCart}>Remove everything from cart</Button>
+
           <Button sx={{ mt: 4 }} variant="contained">
             Proceed to Payment
           </Button>
@@ -89,6 +95,7 @@ export default function Cart() {
           </Typography>
         </Box>
       )}
+
       <Button onClick={() => setShowCart(false)}> close</Button>
     </Drawer>
   );

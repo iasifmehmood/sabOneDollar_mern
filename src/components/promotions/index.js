@@ -6,23 +6,23 @@ import { Colors } from "../../styles/theme";
 
 const messages = [
   "20% off on your first order!",
-  "Summer sale starts now, visit any store.",
-  "Please like and subscribe :)",
+  "30% off on more than one order ",
+  "50% off plus free delivery on 5 or more orders",
 ];
 export default function Promotions() {
   const containerRef = useRef();
   const [show, setShow] = useState(true);
-    const [messageIndex, setMessageIndex] = useState(0);
-    useEffect(() => {
-            setTimeout(() => {
-              setShow(false);
-            }, 3000);
+  const [messageIndex, setMessageIndex] = useState(0);
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(false);
+    }, 3000);
     const intervalId = setInterval(() => {
       // get next message
-      setMessageIndex((i) => (i + 1) % messages.length);
+      setMessageIndex(i => (i + 1) % messages.length);
 
       // slide the message in
-        setShow(true);
+      setShow(true);
 
       setTimeout(() => {
         setShow(false);
@@ -46,9 +46,7 @@ export default function Promotions() {
         }}
       >
         <Box display="flex" justifyContent="center" alignItems="center">
-          <MessageText>
-            {messages[messageIndex]}
-          </MessageText>
+          <MessageText>{messages[messageIndex]}</MessageText>
         </Box>
       </Slide>
     </PromotionsContainer>
