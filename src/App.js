@@ -12,6 +12,7 @@ import AppDrawer from "./components/drawer";
 import Promotions from "./components/promotions";
 import SearchBox from "./components/search";
 import { useEffect } from "react";
+import Cart from "./components/cart";
 
 function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
             <Products />
             <Footer />
             <AppDrawer />
+            <Cart />
           </UIProvider>
         </Stack>
       </Container>
