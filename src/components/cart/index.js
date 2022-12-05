@@ -19,7 +19,7 @@ export default function Cart() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-  const { removeFromCart, removeToCartText } = useCart(cart);
+  const { removeFromCart } = useCart(cart);
 
   const cartContent = cart.map(item => (
     <Box key={item.id}>

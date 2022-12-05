@@ -1,4 +1,4 @@
-import { Button, Typography, useMediaQuery } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/system";
 import {
   BannerContainer,
@@ -18,7 +18,7 @@ export default function Banner() {
       <BannerImage src="/images/banner/decoration_banner.png" />
       <BannerContent>
         <Typography variant="h6">Massive Variety</Typography>
-        <BannerTitle variant="h2">SALE</BannerTitle>
+        <BannerTitle variant={matches ? "h2" : "h1"}>SALE</BannerTitle>
 
         <BannerDescription variant="subtitle">
           Flash sale on now! Get 50% off until Friday, online at sab one dollar.
