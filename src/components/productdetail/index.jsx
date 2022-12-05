@@ -13,10 +13,6 @@ import { Colors } from "../../styles/theme";
 import styled from "@emotion/styled";
 import { Product, ProductImage } from "../../styles/product";
 import IncDec from "../ui/incdec";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 
