@@ -14,7 +14,7 @@ function useCart(product) {
       ? "Remove from Cart"
       : "Add to cart";
 
-  return addToCart, addToCartText;
+  return { addToCart, addToCartText };
 }
 
 export default useCart;
