@@ -1,9 +1,6 @@
 import {
-  Box,
-  Button,
   Divider,
   Drawer,
-  IconButton,
   List,
   ListItemButton,
   ListItemText,
@@ -15,10 +12,9 @@ import { DrawerCloseButton } from "../../styles/appbar";
 import { lighten } from "polished";
 import { Colors } from "../../styles/theme";
 
-const MiddleDivider = styled((props) => (
+const MiddleDivider = styled(props => (
   <Divider variant="middle" {...props} />
 ))``;
-
 
 export default function AppDrawer() {
   const { drawerOpen, setDrawerOpen } = useUIContext();

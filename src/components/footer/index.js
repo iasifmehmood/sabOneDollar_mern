@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import {
   Grid,
   List,
@@ -6,7 +5,6 @@ import {
   Typography,
   Button,
   Stack,
-  Container,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { Colors } from "../../styles/theme";
@@ -25,7 +23,7 @@ export default function Footer() {
         p: { xs: 4, md: 10 },
         pt: 12,
         pb: 12,
-        fontSize: { xs: '12px', md: '14px' }
+        fontSize: { xs: "12px", md: "14px" },
       }}
     >
       <Grid container spacing={2} justifyContent="center">
