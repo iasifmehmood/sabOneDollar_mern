@@ -11,33 +11,23 @@ import { useEffect } from "react";
 import Home from "./components/pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/account/logIn";
+import DataProvider from "./context/ui/DataProvider";
 
 function App() {
   useEffect(() => {
     document.title = "React Material UI - Home";
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <Container
-        disableGutters
-        maxWidth="xl"
-        sx={{
-          background: "#fff",
-        }}
-      >
-        <Stack>
-          <UIProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Login></Login>}>
-                  <Route index element={<Home></Home>}></Route>
-                </Route>
-              </Routes>
-            </BrowserRouter>
-          </UIProvider>
-        </Stack>
-      </Container>
-    </ThemeProvider>
+    <DataProvider>
+      <BrowserRouter>
+        <div>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </DataProvider>
   );
 }
 
