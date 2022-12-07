@@ -21,7 +21,7 @@ export default function AppbarDesktop({ matches }) {
         <ListItemButton button component={Link} to="/aboutus">
           About us
         </ListItemButton>
-        <ListItemButton button component={Link} to="/login">
+        <ListItemButton button component={Link} to="/account">
           Logout
         </ListItemButton>
         {/* <ListItemText primary="Home" />

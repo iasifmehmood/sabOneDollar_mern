@@ -14,6 +14,7 @@ import { UIProvider } from "../../context/ui";
 
 export default function Home() {
   return (
+    
     <ThemeProvider theme={theme}>
       <Container
         disableGutters

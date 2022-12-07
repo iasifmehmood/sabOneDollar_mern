@@ -6,26 +6,48 @@ import theme from "./styles/theme";
 
 import { UIProvider } from "./context/ui";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Home from "./components/pages";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Login from "./components/account/logIn";
 import DataProvider from "./context/ui/DataProvider";
 
+const PrivateRoute = ({ isAuthenticated, ...props }) => {
+  const token = sessionStorage.getItem("accessToken");
+  return isAuthenticated && token ? (
+    <>
+      <Outlet />
+    </>
+  ) : (
+    <Navigate replace to="/account" />
+  );
+};
+
 function App() {
-  useEffect(() => {
-    document.title = "React Material UI - Home";
-  }, []);
+  const [isAuthenticated, isUserAuthenticated] = useState(false);
   return (
     <DataProvider>
       <BrowserRouter>
-        <div>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route
+            path="/account"
+            element={<Login isUserAuthenticated={isUserAuthenticated} />}
+          />
+
+          <Route
+            path="/"
+            element={<PrivateRoute isAuthenticated={isAuthenticated} />}
+          >
+            <Route path="/" element={<Home />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </DataProvider>
   );
