@@ -4,10 +4,21 @@ import SingleProduct from "./SingleProduct";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import SingleProductDesktop from "./SingleProductDesktop";
+import { useSelector, useDispatch } from "react-redux"; // hooks
+import { getProducts as listProducts } from "../../redux/actions/productActions";
+import { useEffect } from "react";
 
 export default function Products() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const getProducts = useSelector(state => state.getProducts);
+  const { products, error } = getProducts;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
 
   const renderProducts = products.map(product => (
     <Grid

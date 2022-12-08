@@ -1,4 +1,4 @@
-import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { ListItemButton, ListItemIcon } from "@mui/material";
 import { AppbarContainer, AppbarHeader, MyList } from "../../styles/appbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
@@ -12,16 +12,16 @@ export default function AppbarDesktop({ matches }) {
     <AppbarContainer>
       <AppbarHeader variant="h4">Sab One Dollar</AppbarHeader>
       <MyList type="row">
-        <ListItemButton button component={Link} to="/">
+        <ListItemButton component={Link} to="/">
           Home
         </ListItemButton>
-        <ListItemButton button component={Link} to="/products">
+        <ListItemButton component={Link} to="/products">
           Products
         </ListItemButton>
-        <ListItemButton button component={Link} to="/aboutus">
-          About us
+        <ListItemButton component={Link} to="/add/product">
+          Add Products
         </ListItemButton>
-        <ListItemButton button component={Link} to="/account">
+        <ListItemButton component={Link} to="/account">
           Logout
         </ListItemButton>
         {/* <ListItemText primary="Home" />

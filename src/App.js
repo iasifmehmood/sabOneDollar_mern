@@ -6,9 +6,9 @@ import theme from "./styles/theme";
 
 import { UIProvider } from "./context/ui";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import Home from "./components/pages";
+import Home from "./components/pages/Home";
 import {
   BrowserRouter,
   Navigate,
@@ -18,11 +18,14 @@ import {
 } from "react-router-dom";
 import Login from "./components/account/logIn";
 import DataProvider from "./context/ui/DataProvider";
+import Appbar from "./components/appbar";
+import AddProduct from "./components/pages/AddProducts";
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem("accessToken");
   return isAuthenticated && token ? (
     <>
+      <Appbar />
       <Outlet />
     </>
   ) : (
@@ -47,6 +50,15 @@ function App() {
           >
             <Route path="/" element={<Home />} />
           </Route>
+
+          {/* <Route path="/" element={<Home />} /> */}
+
+          {/* <Route
+            path="/"
+            element={<PrivateRoute isAuthenticated={isAuthenticated} />}
+          >
+            <Route path="/add/product" element={<AddProduct />} />
+          </Route> */}
         </Routes>
       </BrowserRouter>
     </DataProvider>
