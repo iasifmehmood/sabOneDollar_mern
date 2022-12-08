@@ -20,6 +20,8 @@ import Login from "./components/account/logIn";
 import DataProvider from "./context/ui/DataProvider";
 import Appbar from "./components/appbar";
 import AddProduct from "./components/pages/AddProducts";
+import ProductDetail from "./components/productdetail";
+import DetailView from "./components/productdetail/detailView";
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem("accessToken");
@@ -39,7 +41,7 @@ function App() {
     <DataProvider>
       <BrowserRouter>
         <Routes>
-          <Route
+          {/* <Route
             path="/account"
             element={<Login isUserAuthenticated={isUserAuthenticated} />}
           />
@@ -49,9 +51,10 @@ function App() {
             element={<PrivateRoute isAuthenticated={isAuthenticated} />}
           >
             <Route path="/" element={<Home />} />
-          </Route>
+          </Route> */}
 
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<DetailView />} />
 
           {/* <Route
             path="/"

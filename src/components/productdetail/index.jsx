@@ -64,7 +64,7 @@ export default function ProductDetail({ open, onClose, product }) {
           flexDirection={matches ? "column" : "row"}
         >
           <Product sx={{ mr: 4 }}>
-            <ProductImage src={product.image} />
+            <ProductImage src={product.url} />
           </Product>
           <ProductDetailInfoWrapper>
             <Typography variant="subtitle">SKU: 123</Typography>
