@@ -4,14 +4,13 @@ import {
   ProductActionButton,
   ProductActionsWrapper,
   ProductAddToCart,
-  ProductImage,
 } from "../../styles/product";
 import { Box, Stack, Tooltip, Typography } from "@mui/material";
 
 import FitScreenIcon from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
-import ProductMeta from "./ProductMeta";
+
 import useCart from "../../hooks/useCart";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";

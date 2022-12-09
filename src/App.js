@@ -22,6 +22,7 @@ import Appbar from "./components/appbar";
 import AddProduct from "./components/pages/AddProducts";
 import ProductDetail from "./components/productdetail";
 import DetailView from "./components/productdetail/detailView";
+import MyCart from "./components/cart/Cart";
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem("accessToken");
@@ -55,6 +56,7 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<DetailView />} />
+          <Route path="/cart" element={<MyCart />} />
 
           {/* <Route
             path="/"

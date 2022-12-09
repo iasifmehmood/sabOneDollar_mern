@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 // import { payUsingPaytm } from '../../service/api';
 // import { post } from '../../utils/paytm';
 
-// import { addToCart } from '../../redux/actions/cartActions';
+import { addToCart } from "../../redux/actions/cartActions";
 
 import { useDispatch } from "react-redux";
 
@@ -57,17 +57,17 @@ const ActionItem = ({ product }) => {
   //     post(information);
   //   };
 
-  //   const addItemToCart = () => {
-  //     dispatch(addToCart(id, quantity));
-  //     navigate("/cart");
-  //   };
+  const addItemToCart = () => {
+    dispatch(addToCart(id, quantity));
+    navigate("/cart");
+  };
 
   return (
     <LeftContainer>
       <Image src={product.detailUrl} />
       <br />
       <StyledButton
-        // onClick={() => addItemToCart()}
+        onClick={() => addItemToCart()}
         style={{ marginRight: 10, background: "#ff9f00" }}
         variant="contained"
       >

@@ -35,7 +35,7 @@ export default function Home() {
               <Products />
               <Footer />
               <AppDrawer />
-              <Cart />
+              {/* <Cart /> */}
             </UIProvider>
           </Stack>
         </Container>
