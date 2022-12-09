@@ -2,7 +2,6 @@ import { Container, Typography, Stack } from "@mui/material";
 import { Box } from "@mui/system";
 import Appbar from "../appbar";
 import Banner from "../banner";
-import Cart from "../cart";
 import AppDrawer from "../drawer";
 import Footer from "../footer";
 import Products from "../products";
@@ -25,7 +24,7 @@ export default function Home() {
         >
           <Stack>
             <UIProvider>
-              <Appbar />
+              {/* <Appbar /> */}
               <Banner />
               <Promotions />
               <SearchBox />
