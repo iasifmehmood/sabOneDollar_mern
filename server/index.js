@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import Router from "./routes/route.js";
 import cors from "cors"; //security feature of browser
 import bodyParser from "body-parser"; // to handle post api req (express doest nt know how to handle)
+import DefaultData from "./default.js";
 
 dotenv.config();
 
@@ -27,3 +28,5 @@ app.listen(PORT, () => console.log(`server is running on ${PORT}`));
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 Connection(USERNAME, PASSWORD);
+
+DefaultData(); //new

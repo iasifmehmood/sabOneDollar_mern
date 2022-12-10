@@ -12,9 +12,13 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Colors } from "../../styles/theme";
 import styled from "@emotion/styled";
 import { Product, ProductImage } from "../../styles/product";
-import IncDec from "../ui/incdec";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { useDispatch } from "react-redux";
+
+import { useParams } from "react-router-dom";
+
+import { addToCart } from "../../redux/actions/cartActions";
 
 function SlideTransition(props) {
   return <Slide direction="down" {...props} />;
@@ -35,6 +39,15 @@ const ProductDetailInfoWrapper = styled(Box)(() => ({
 export default function ProductDetail({ open, onClose, product }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+  const { id } = useParams();
+
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    dispatch(addToCart(id));
+  };
+
   return (
     <Dialog
       TransitionComponent={SlideTransition}
@@ -52,7 +65,7 @@ export default function ProductDetail({ open, onClose, product }) {
           alignItems="center"
           justifyContent={"space-between"}
         >
-          Product title
+          {product.title.shortTitle}
           <IconButton onClick={onClose}>
             <CloseIcon />
           </IconButton>
@@ -64,17 +77,16 @@ export default function ProductDetail({ open, onClose, product }) {
           flexDirection={matches ? "column" : "row"}
         >
           <Product sx={{ mr: 4 }}>
-            <ProductImage src={product.image} />
+            <ProductImage src={product.url} />
           </Product>
           <ProductDetailInfoWrapper>
-            <Typography variant="subtitle">SKU: 123</Typography>
-            <Typography variant="subtitle">Availability: 5 in stock</Typography>
             <Typography sx={{ lineHeight: 2 }} variant="h4">
-              {product.name}
+              {product.title.shortTitle}
             </Typography>
-            <Typography variant="body">
-              {product.description}
-              {product.description}
+            <Typography variant="subtitle">
+              {product.title.longTitle}
+            </Typography>
+            <Typography sx={{ lineHeight: 2 }} variant="body">
               {product.description}
             </Typography>
             <Box
@@ -83,8 +95,9 @@ export default function ProductDetail({ open, onClose, product }) {
               alignItems="center"
               justifyContent="space-between"
             >
-              <IncDec />
-              <Button variant="contained">Add to Cart</Button>
+              <Button onClick={() => addItemToCart()} variant="contained">
+                Add to Cart
+              </Button>
             </Box>
           </ProductDetailInfoWrapper>
         </ProductDetailWrapper>

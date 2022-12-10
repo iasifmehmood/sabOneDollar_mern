@@ -12,6 +12,7 @@ export default function Promotions() {
   const containerRef = useRef();
   const [show, setShow] = useState(true);
   const [messageIndex, setMessageIndex] = useState(0);
+
   useEffect(() => {
     setTimeout(() => {
       setShow(false);
