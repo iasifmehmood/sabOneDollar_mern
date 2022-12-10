@@ -52,18 +52,18 @@ export const products = [
 export const bannerData = [
   {
     id: 1,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/d117a62eb5fbb8e1.jpg?q=50",
+    url: "https://img.freepik.com/free-psd/horizontal-banner-template-black-friday-clearance_23-2148745446.jpg?w=1380&t=st=1670705595~exp=1670706195~hmac=554a723f0d740c29a578602d9cb966ce6c7cdd84ee942d66ea42341073cab5c7",
   },
   {
     id: 2,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/57267a180af306fe.jpg?q=50",
+    url: "https://thumbs.dreamstime.com/z/abstract-background-autumn-season-template-design-long-banner-style-new-trend-gradient-vector-illustration-cover-155789657.jpg",
   },
   {
     id: 3,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/ae9966569097a8b7.jpg?q=50",
+    url: "https://img.freepik.com/free-vector/flat-sale-banner-with-photo_23-2149026968.jpg?w=1800&t=st=1670705529~exp=1670706129~hmac=cc3a0064749ebbc58c46df370d5c78212c37abf83261b5fa8f0bf8ed942b0bc8",
   },
   {
     id: 4,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/f6202f13b6f89b03.jpg?q=50",
+    url: "https://img.freepik.com/free-psd/black-friday-sale-banner-with-shopping-store-concept-mobile-phone-3d-rendering_106244-2153.jpg?w=1380&t=st=1670705643~exp=1670706243~hmac=4dc1f15b0551401feecd9b2ecf802981c860f494503224851770100e71eebb61",
   },
 ];

@@ -11,9 +11,10 @@ import FitScreenIcon from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
 
-import useCart from "../../hooks/useCart";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/actions/cartActions";
 
 const Image = styled("img")({
   width: "auto",
@@ -31,14 +32,20 @@ export default function SingleProduct({ product, matches }) {
 
   const [showOptions, setShowOptions] = useState(false);
 
-  const { addToCart, addToCartText } = useCart(product);
-
   const handleMouseEnter = () => {
     setShowOptions(true);
   };
   const handleMouseLeave = () => {
     setShowOptions(false);
   };
+  const { id } = product;
+
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    dispatch(addToCart(id));
+  };
+
   return (
     <>
       <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -66,8 +73,8 @@ export default function SingleProduct({ product, matches }) {
           </Stack>
         </ProductActionsWrapper>
       </Product>
-      <ProductAddToCart onClick={addToCart} variant="contained">
-        {addToCartText}
+      <ProductAddToCart onClick={() => addItemToCart()} variant="contained">
+        Add to Cart
       </ProductAddToCart>
       <ProductDetailDialog product={product} />
     </>

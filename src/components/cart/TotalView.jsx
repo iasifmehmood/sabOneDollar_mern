@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Box, Typography, styled } from "@mui/material";
 import { useCallback } from "react";
+import GroupedButton from "./GroupButton";
 
 const Header = styled(Box)`
   padding: 15px 24px;
@@ -54,7 +55,6 @@ const TotalView = ({ cartItems }) => {
       price += item.price.mrp;
       discount += item.price.mrp - item.price.cost;
     });
-
     setPrice(price);
     setDiscount(discount);
   }, [cartItems]);
@@ -73,21 +73,21 @@ const TotalView = ({ cartItems }) => {
       <Container>
         <Typography>
           Price ({cartItems?.length} item)
-          <Price component="span">₹{price}</Price>
+          <Price component="span">Rs:{price}</Price>
         </Typography>
         <Typography>
           Discount
-          <Price component="span">-₹{discount}</Price>
+          <Price component="span">-Rs:{discount}</Price>
         </Typography>
         <Typography>
           Delivery Charges
-          <Price component="span">₹40</Price>
+          <Price component="span">Rs:40</Price>
         </Typography>
         <TotalAmount>
           Total Amount
-          <Price>₹{price - discount + 40}</Price>
+          <Price>Rs:{price - discount + 40}</Price>
         </TotalAmount>
-        <Discount>You will save ₹{discount - 40} on this order</Discount>
+        <Discount>You will save Rs:{discount - 40} on this order</Discount>
       </Container>
     </Box>
   );

@@ -4,17 +4,15 @@ import {
   ProductActionButton,
   ProductActionsWrapper,
   ProductAddToCart,
-  ProductImage,
 } from "../../styles/product";
 import { Box, Stack, Tooltip, Typography } from "@mui/material";
 import FitScreenIcon from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
-// import useCart from "../../hooks/useCart";
+
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/actions/cartActions";
 
 const Image = styled("img")({
@@ -33,7 +31,6 @@ export default function SingleProductDesktop({ product, matches }) {
 
   const [showOptions, setShowOptions] = useState(false);
 
-  // const { addToCart, addToCartText } = useCart(product);
 
   const handleMouseEnter = () => {
     setShowOptions(true);
@@ -43,13 +40,13 @@ export default function SingleProductDesktop({ product, matches }) {
   };
 
   const { id } = product;
-  const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(1);
+
   const dispatch = useDispatch();
+
   const addItemToCart = () => {
-    dispatch(addToCart(id, quantity));
-    // navigate("/cart");
+    dispatch(addToCart(id));
   };
+
   return (
     <>
       <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -75,8 +72,8 @@ export default function SingleProductDesktop({ product, matches }) {
             show={showOptions}
             variant="contained"
           >
-            Add to Cart
-            {/* {addToCartText} */}
+            {/* Add to Cart */}
+            Add to Card
           </ProductAddToCart>
         )}
         <ProductActionsWrapper show={showOptions || matches}>
@@ -89,7 +86,7 @@ export default function SingleProductDesktop({ product, matches }) {
           </Stack>
         </ProductActionsWrapper>
       </Product>
-      {/* <ProductMeta product={product} /> */}
+    
       <ProductDetailDialog product={product} />
     </>
   );

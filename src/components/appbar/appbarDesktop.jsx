@@ -10,7 +10,7 @@ export default function AppbarDesktop({ matches }) {
 
   return (
     <AppbarContainer>
-      <AppbarHeader variant="h4">Sab One Dollar</AppbarHeader>
+      <AppbarHeader variant="h4">E-SHOP</AppbarHeader>
       <MyList type="row">
         <ListItemButton component={Link} to="/">
           Home

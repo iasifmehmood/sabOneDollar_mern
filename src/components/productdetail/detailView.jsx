@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from "../../redux/actions/productActions";
 import ActionItem from "./ActionItem";
 import { styled, Box, Typography, Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
+
 import ProductDetail from "./ProductDetail";
 
 ///////////////////////////style////////////////////////
@@ -33,11 +32,6 @@ const RightContainer = styled(Grid)`
 ///////////////////////////style////////////////////////
 
 const DetailView = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-  const fassured =
-    "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png";
-
   const { id } = useParams();
 
   const { loading, product } = useSelector(state => state.getProductDetails);
@@ -57,18 +51,7 @@ const DetailView = () => {
           </Grid>
           <RightContainer item lg={8} md={8} sm={8} xs={12}>
             <Typography>{product.title.longTitle}</Typography>
-            <Typography
-              style={{ marginTop: 5, color: "#878787", fontSize: 14 }}
-            >
-              8 Ratings & 1 Reviews
-              <span>
-                <img
-                  src={fassured}
-                  style={{ width: 77, marginLeft: 20 }}
-                  alt="product"
-                />
-              </span>
-            </Typography>
+
             <Typography>
               <span style={{ fontSize: 28 }}>Rs:{product.price.cost}</span>
               &nbsp;&nbsp;&nbsp;

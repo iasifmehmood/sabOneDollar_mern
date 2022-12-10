@@ -9,9 +9,7 @@ import EmptyCart from "./EmptyCart";
 import CartItem from "./CartItem";
 import TotalView from "./TotalView";
 import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
-
-// import { post } from '../../utils/paytm';
-// import { payUsingPaytm } from '../../service/api';
+// import GroupedButton from "./GroupButton";
 
 const Component = styled(Grid)(({ theme }) => ({
   padding: "30px 135px",
@@ -65,17 +63,7 @@ const Cart = () => {
     dispatch(removeFromCart(id));
   };
 
-  //   const buyNow = async () => {
-  //     let response = await payUsingPaytm({
-  //       amount: 500,
-  //       email: "kunaltyagi@gmail.com",
-  //     });
-  //     var information = {
-  //       action: "https://securegw-stage.paytm.in/order/process",
-  //       params: response,
-  //     };
-  //     post(information);
-  //   };
+  // <GroupedButton addToCart={addToCart} />;
 
   return (
     <>
@@ -92,7 +80,6 @@ const Cart = () => {
             ))}
             <BottomWrapper>
               <StyledButton variant="contained">Place Order</StyledButton>
-              {/* onClick={() => buyNow()} */}
             </BottomWrapper>
           </LeftComponent>
           <Grid item lg={3} md={3} sm={12} xs={12}>

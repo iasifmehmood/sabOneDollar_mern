@@ -53,12 +53,12 @@ const ProductDetail = ({ product }) => {
         </Typography>
         <Typography>
           <StyledBadge />
-          Purchase this Furniture or Appliance and Get Extra ₹500 Off on Select
-          ACs
+          Purchase this Furniture or Appliance and Get Extra Rs:500 Off on
+          Select ACs
         </Typography>
         <Typography>
           <StyledBadge />
-          Partner OfferExtra 10% off upto ₹500 on next furniture purchase
+          Partner OfferExtra 10% off upto Rs:500 on next furniture purchase
         </Typography>
       </SmallText>
       <Table>
@@ -66,26 +66,10 @@ const ProductDetail = ({ product }) => {
           <ColumnText>
             <TableCell style={{ color: "#878787" }}>Delivery</TableCell>
             <TableCell style={{ fontWeight: 600 }}>
-              Delivery by {date.toDateString()} | ₹40
+              Delivery by {date.toDateString()} | Rs:40
             </TableCell>
           </ColumnText>
-          <ColumnText>
-            <TableCell style={{ color: "#878787" }}>Warranty</TableCell>
-            <TableCell>No Warranty</TableCell>
-          </ColumnText>
-          <ColumnText>
-            <TableCell style={{ color: "#878787" }}>Seller</TableCell>
-            <TableCell>
-              <span style={{ color: "#2874f0" }}>SuperComNet</span>
-              <Typography>GST invoice available</Typography>
-              <Typography>View more sellers starting from ₹329</Typography>
-            </TableCell>
-          </ColumnText>
-          <TableRow>
-            <TableCell colSpan={2}>
-              <img src={adURL} style={{ width: 390 }} alt="additionalImage" />
-            </TableCell>
-          </TableRow>
+
           <ColumnText>
             <TableCell style={{ color: "#878787" }}>Description</TableCell>
             <TableCell>{product.description}</TableCell>

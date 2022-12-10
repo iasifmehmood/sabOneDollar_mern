@@ -24,7 +24,7 @@ export default function Home() {
         >
           <Stack>
             <UIProvider>
-              <Appbar />
+              {/* <Appbar /> */}
               <Banner />
               <Promotions />
               <SearchBox />

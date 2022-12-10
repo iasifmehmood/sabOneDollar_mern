@@ -1,6 +1,4 @@
 import { Card, Box, Typography, Button, styled } from "@mui/material";
-
-// import { addEllipsis } from "../../utils/util";
 import GroupButton from "./GroupButton";
 
 const Component = styled(Card)`
@@ -40,8 +38,8 @@ const Remove = styled(Button)`
 `;
 
 const CartItem = ({ item, removeItemFromCart }) => {
-  const fassured =
-    "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png";
+  // const fassured =
+  //   "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png";
 
   return (
     <Component>
@@ -51,21 +49,20 @@ const CartItem = ({ item, removeItemFromCart }) => {
           style={{ height: 110, width: 110 }}
           alt="productimage"
         />
-        <GroupButton />
+        {/* <GroupButton /> */}
       </LeftComponent>
       <Box style={{ margin: 20 }}>
-        {/* <Typography>{addEllipsis(item.title.longTitle)}</Typography> */}
         <Typography>{item.title.longTitle}</Typography>
-        <SmallText>
+        {/* <SmallText>
           Seller:RetailNet
           <span>
             <img src={fassured} style={{ width: 50, marginLeft: 10 }} alt="s" />
           </span>
-        </SmallText>
+        </SmallText> */}
         <Typography style={{ margin: "20px 0" }}>
-          <Cost component="span">₹{item.price.cost}</Cost>&nbsp;&nbsp;&nbsp;
+          <Cost component="span">Rs:{item.price.cost}</Cost>&nbsp;&nbsp;&nbsp;
           <MRP component="span">
-            <strike>₹{item.price.mrp}</strike>
+            <strike>Rs:{item.price.mrp}</strike>
           </MRP>
           &nbsp;&nbsp;&nbsp;
           <Discount component="span">{item.price.discount} off</Discount>
