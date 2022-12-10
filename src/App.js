@@ -42,7 +42,7 @@ function App() {
     <DataProvider>
       <BrowserRouter>
         <Routes>
-          <Route
+          {/* <Route
             path="/account"
             element={<Login isUserAuthenticated={isUserAuthenticated} />}
           />
@@ -66,11 +66,11 @@ function App() {
             element={<PrivateRoute isAuthenticated={isAuthenticated} />}
           >
             <Route path="/cart" element={<MyCart />} />
-          </Route>
+          </Route> */}
 
-          {/* <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<DetailView />} />
-          <Route path="/cart" element={<MyCart />} /> */}
+          <Route path="/cart" element={<MyCart />} />
 
           {/* <Route
             path="/"

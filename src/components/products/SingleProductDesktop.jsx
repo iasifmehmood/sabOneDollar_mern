@@ -4,16 +4,18 @@ import {
   ProductActionButton,
   ProductActionsWrapper,
   ProductAddToCart,
+  ProductImage,
 } from "../../styles/product";
 import { Box, Stack, Tooltip, Typography } from "@mui/material";
-
 import FitScreenIcon from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
-
-import useCart from "../../hooks/useCart";
+// import useCart from "../../hooks/useCart";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../redux/actions/cartActions";
 
 const Image = styled("img")({
   width: "auto",
@@ -31,13 +33,22 @@ export default function SingleProductDesktop({ product, matches }) {
 
   const [showOptions, setShowOptions] = useState(false);
 
-  const { addToCart, addToCartText } = useCart(product);
+  // const { addToCart, addToCartText } = useCart(product);
 
   const handleMouseEnter = () => {
     setShowOptions(true);
   };
   const handleMouseLeave = () => {
     setShowOptions(false);
+  };
+
+  const { id } = product;
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+  const addItemToCart = () => {
+    dispatch(addToCart(id, quantity));
+    // navigate("/cart");
   };
   return (
     <>
@@ -59,11 +70,13 @@ export default function SingleProductDesktop({ product, matches }) {
 
         {showOptions && (
           <ProductAddToCart
-            onClick={addToCart}
+            // onClick={addToCart}
+            onClick={() => addItemToCart()}
             show={showOptions}
             variant="contained"
           >
-            {addToCartText}
+            Add to Cart
+            {/* {addToCartText} */}
           </ProductAddToCart>
         )}
         <ProductActionsWrapper show={showOptions || matches}>
@@ -76,7 +89,7 @@ export default function SingleProductDesktop({ product, matches }) {
           </Stack>
         </ProductActionsWrapper>
       </Product>
-
+      {/* <ProductMeta product={product} /> */}
       <ProductDetailDialog product={product} />
     </>
   );

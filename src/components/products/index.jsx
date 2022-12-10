@@ -7,6 +7,7 @@ import SingleProductDesktop from "./SingleProductDesktop";
 import { useSelector, useDispatch } from "react-redux"; // hooks
 import { getProducts as listProducts } from "../../redux/actions/productActions";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Products() {
   const theme = useTheme();
@@ -16,9 +17,13 @@ export default function Products() {
 
   const dispatch = useDispatch();
 
+  const { id } = useParams();
+
+  const { product } = useSelector(state => state.getProductDetails);
+
   useEffect(() => {
     dispatch(listProducts());
-  }, [dispatch]);
+  }, [dispatch, product, id]);
 
   const renderProducts = products.map(product => (
     <Grid
